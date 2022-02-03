@@ -1,7 +1,11 @@
 <% const name='Manu' %>
 <nav>
     <div class="site-title">
+        <%if (user){ %>
+        <p><%= user.username %></p>
+        <% }else{ %>
         <p><%= name %></p>
+        <% } %>
         <a href="/"><h1>Jerry's Blog</h1></a>
         <p>A jerry's blog site</p>
     </div>
@@ -9,5 +13,12 @@
         <li><a href="/">Blogs</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/blogs/create">New Blog</a></li>
+        <%if (user){ %>
+            <li><a href="/logout">Log Out</a></li>
+        
+        <% }else{ %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+        <% } %>
     </ul>
 </nav>
